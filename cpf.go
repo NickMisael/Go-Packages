@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// Função validar, retorna verdadeiro caso o cpf seja válido
 func Valida(cf string) (ver bool) {
 	var soma int
 	/*if _, err := strconv.Atoi(cf); err != nil {
@@ -49,6 +50,7 @@ func Valida(cf string) (ver bool) {
 	return
 }
 
+// Gera um cpf apenas
 func Gera1() (cpf string) {
 	rand.Seed(time.Now().UTC().UnixNano())
 	for {
@@ -65,6 +67,7 @@ func Gera1() (cpf string) {
 	return
 }
 
+// Gera um slice com uma qtd determinada de cpfs
 func GeraS(qtd int) []string {
 	rand.Seed(time.Now().UTC().UnixNano())
 	cpf := make([]string, qtd)
@@ -83,16 +86,3 @@ func GeraS(qtd int) []string {
 	}
 	return cpf
 }
-
-/*
-func main() {
-	/*var cpf string
-	fmt.Printf("CPF -> ")
-	fmt.Scanf("%s", &cpf)
-	if Valida(cpf) == false {
-		fmt.Println("CPF Inválido!")
-	} else {
-		fmt.Println("CPF Válido")
-	}
-	fmt.Println(GeraS(3))
-}*/
