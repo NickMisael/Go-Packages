@@ -1,1 +1,1 @@
-Meus pacotes Go
+Pacotes que podem agilizar a vida de programadores Go
