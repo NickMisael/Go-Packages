@@ -1,22 +1,43 @@
-package main
+package ascii
 
 import (
+	"errors"
 	"fmt"
-	"strings"
 )
 
-func Codifica(texto string) (codificado string) {
-	str := strings.Split(texto, " ")
-	fmt.Printf("%v\n", str[0])
+func Code(texto string) (code string) {
+	for _, item := range texto {
+		code += fmt.Sprintf("%X", item)
+	}
 	return
 }
 
-func Decodifica(texto string) (traduzido string) {
-	str := strings.Split(texto, " ")
-	fmt.Printf("%v\n", str[0])
+func CodeS(textos []string) (code []string) {
+	for _, txt := range textos {
+		var str string
+		for _, char := range txt {
+			str += fmt.Sprintf("%X", char)
+		}
+		code = append(code, str)
+	}
 	return
 }
 
-func main() {
-	fmt.Println(Codifica("A B C"))
+func Decode(texto string) string {
+	var str string
+	for _, txt := range texto {
+		str += fmt.Sprintf("%c", txt)
+	}
+	return str
+}
+
+func DecodeS(text []byte) (string, error) {
+	if len(text) == 0 {
+		return "", errors.New("Nenhum byte encontrado! :(")
+	}
+	var tr string
+	for i := 0; i < len(text); i++ {
+		tr += fmt.Sprintf("%c", text[i])
+	}
+	return tr, nil
 }
