@@ -1,1 +1,1 @@
-Pacotes que podem agilizar a vida de programadores Go
+Packages that can make life easier for Go programmers
